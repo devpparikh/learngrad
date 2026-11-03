@@ -103,7 +103,3 @@ class Value:
     self.grad = 1
     for val in reversed(topo):
       val._backward()
-
-def __repr__(self):
-    return f"Value(data={self.data}, grad={self.grad})"
-  

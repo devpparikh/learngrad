@@ -1,5 +1,9 @@
 # learngrad
 
+[![CI](https://github.com/devpparikh/learngrad/actions/workflows/ci.yml/badge.svg)](https://github.com/devpparikh/learngrad/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/learngrad)](https://pypi.org/project/learngrad/)
+[![Python](https://img.shields.io/pypi/pyversions/learngrad)](https://pypi.org/project/learngrad/)
+
 A minimal scalar-valued autograd engine with neural network primitives, built for learning purposes. Inspired by [micrograd](https://github.com/karpathy/micrograd).
 
 ## Install
@@ -53,3 +57,13 @@ Reaches ~94% val accuracy in 100 epochs.
 
 - Python >= 3.10
 - numpy
+
+## Tests
+
+```bash
+pip install -e ".[test]"
+pytest
+```
+
+Every operation's backward pass is checked against a finite-difference
+gradient, and each optimizer is checked to fit a simple linear model.
