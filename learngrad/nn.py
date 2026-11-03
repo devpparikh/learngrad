@@ -48,7 +48,7 @@ class Layer(Module):
         for key, group in groupby(self.neurons, key=str):
             count = sum(1 for _ in group)
             result.append(f"{count} x {key}" if count > 1 else key)
-        return f"Layer({", ".join(result)})"
+        return "Layer(" + ", ".join(result) + ")"
 
 
 class MLP(Module):
@@ -66,4 +66,5 @@ class MLP(Module):
         return [p for layer in self.layers for p in layer.parameters()]
 
     def __repr__(self):
-        return f"MLP(\n{',\n'.join(str(layer) for layer in self.layers)}\n)"
+        layers = ",\n".join(str(layer) for layer in self.layers)
+        return f"MLP(\n{layers}\n)"
